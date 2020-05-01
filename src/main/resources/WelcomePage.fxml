@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.WelcomePageController">
+<children>
+    <BorderPane minHeight="600.0" minWidth="800.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <left>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+        </left>
+        <right>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+        </right>
+        <bottom>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+        </bottom>
+        <top>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <children>
+                    <Label alignment="CENTER" layoutX="117.0" layoutY="100.0" text="Animal Adoption and Fostering Application" textAlignment="CENTER">
+                        <font>
+                            <Font name="Arial" size="30.0" />
+                        </font>
+                    </Label>
+                </children>
+            </Pane>
+        </top>
+         <center>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+                  <children>
+                      <Button layoutX="100.0" layoutY="46.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="200.0" text="REGISTER" AnchorPane.bottomAnchor="113.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="46.0" />
+                      <Button layoutX="100.0" layoutY="116.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="200.0" text="LOG IN" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="116.0" />
+                  </children>
+              </AnchorPane>
+         </center>
+    </BorderPane>
+</children>
+</AnchorPane>
