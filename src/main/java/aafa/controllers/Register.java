@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Register {
+
     public void registerButton( ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("WelcomePage.fxml"));
