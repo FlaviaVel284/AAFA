@@ -1,29 +1,25 @@
 package aafa.controllers;
 
 import aafa.MainApp;
-import javafx.fxml.FXML;
+import aafa.services.UserService;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import javafx.event.ActionEvent;
-import org.jetbrains.annotations.NotNull;
-
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class WelcomePageController  {
-    private MainApp mainApp;
-
-    public void setMainApp(MainApp mainApp) {
-        this.mainApp = mainApp;
-    }
+//    private MainApp mainApp;
+//
+//    public void setMainApp(MainApp mainApp) {
+//        this.mainApp = mainApp;
+//    }
 
     public void handleRegister( ActionEvent event) throws IOException {
+        //UserService.loadUsersFromFile();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("Register.fxml"));
         Parent registerFormParent = loader.load();
