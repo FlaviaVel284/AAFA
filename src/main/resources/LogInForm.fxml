@@ -31,9 +31,10 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="usernameField" GridPane.columnIndex="1" />
+            <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
+      <Button layoutX="399.0" layoutY="373.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="83.0" onAction="#logInButton" text="Log In" />
    </children>
 </AnchorPane>

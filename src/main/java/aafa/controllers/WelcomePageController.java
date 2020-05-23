@@ -12,14 +12,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class WelcomePageController  {
-//    private MainApp mainApp;
-//
-//    public void setMainApp(MainApp mainApp) {
-//        this.mainApp = mainApp;
-//    }
 
     public void handleRegister( ActionEvent event) throws IOException {
-        //UserService.loadUsersFromFile();
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("Register.fxml"));
         Parent registerFormParent = loader.load();

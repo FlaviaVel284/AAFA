@@ -3,6 +3,7 @@ package aafa.services;
 import aafa.data.User;
 import aafa.exceptions.CouldNotWriteUsersException;
 import aafa.exceptions.UsernameAlreadyExistsException;
+import aafa.exceptions.UsernameDoesNotExist;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
@@ -47,6 +48,17 @@ public class UserService {
 
     }
 
+    public static void verifyCredentials(String username, String password)throws UsernameDoesNotExist {
+        boolean exists=false;
+        for (User user : users) {
+            if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
+                exists=true;
+            }
+        }
+        if(exists==false) {
+            throw new UsernameDoesNotExist(username);
+        }
+    }
     private static void persistUsers() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -55,7 +67,7 @@ public class UserService {
             throw new CouldNotWriteUsersException();
         }
     }
-    private static String encodePassword(String salt, String password) {
+    public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
@@ -74,4 +86,5 @@ public class UserService {
         }
         return md;
     }
+
 }
