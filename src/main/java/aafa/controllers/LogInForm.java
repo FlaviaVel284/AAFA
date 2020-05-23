@@ -27,10 +27,13 @@ public class LogInForm {
             String encodedPassword=UserService.encodePassword(usernameField.getText(), passwordField.getText());
             UserService.verifyCredentials(usernameField.getText(),encodedPassword);
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getClassLoader().getResource("WelcomePage.fxml"));
+            loader.setLocation(getClass().getClassLoader().getResource("ClientMainScreen.fxml"));
             Parent registerFormParent = loader.load();
             Scene WelcomeScene=new Scene(registerFormParent);
             Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+            window.centerOnScreen();
+            window.setHeight(600);
+            window.setWidth(800);
             window.setScene(WelcomeScene);
             window.show();
         } catch (UsernameDoesNotExist e) {
