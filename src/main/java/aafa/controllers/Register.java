@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -23,7 +24,7 @@ public class Register {
     @FXML
     private TextField usernameField;
     @FXML
-    private TextField passwordField;
+    private PasswordField passwordField;
     @FXML
     private TextField phoneField;
     @FXML
@@ -39,7 +40,6 @@ public class Register {
     }
 
     public void registerButton( ActionEvent event) throws IOException {
-        //UserService.loadUsersFromFile();
         try {
             UserService.addUser(nameField.getText(), usernameField.getText(),passwordField.getText(), phoneField.getText(), emailField.getText(),addressField.getText(), (String) role.getValue());
             FXMLLoader loader = new FXMLLoader();

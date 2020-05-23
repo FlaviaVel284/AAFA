@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.apache.commons.io.FileUtils;
 
 import java.io.IOException;
 
@@ -20,13 +19,13 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        UserService.loadUsersFromFile();
         this.stage=primaryStage;
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("WelcomePage.fxml"));
         primaryStage.setTitle("AAFA");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.centerOnScreen();
         primaryStage.show();
+        UserService.loadUsersFromFile();
     }
 
     public Stage getPrimaryStage() {
