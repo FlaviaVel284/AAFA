@@ -2,6 +2,7 @@ package aafa.services;
 
 import aafa.data.User;
 import aafa.exceptions.CouldNotWriteUsersException;
+import aafa.exceptions.PasswordIncorrect;
 import aafa.exceptions.UsernameAlreadyExistsException;
 import aafa.exceptions.UsernameDoesNotExist;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -48,16 +49,21 @@ public class UserService {
 
     }
 
-    public static void verifyCredentials(String username, String password)throws UsernameDoesNotExist {
+    public static void verifyCredentials(String username, String password)throws UsernameDoesNotExist, PasswordIncorrect {
         boolean exists=false;
         for (User user : users) {
-            if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
-                exists=true;
+            if (username.equals(user.getUsername())) {
+                if (password.equals(user.getPassword())) {
+                    exists=true;
+                } else {
+                   throw new PasswordIncorrect();
+
+                }
             }
         }
-        if(exists==false) {
-            throw new UsernameDoesNotExist(username);
-        }
+            if (exists == false) {
+                throw new UsernameDoesNotExist(username);
+            }
     }
     private static void persistUsers() {
         try {

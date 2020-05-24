@@ -1,5 +1,6 @@
 package aafa.controllers;
 
+import aafa.exceptions.PasswordIncorrect;
 import aafa.exceptions.UsernameDoesNotExist;
 import aafa.services.UserService;
 import javafx.event.ActionEvent;
@@ -32,10 +33,15 @@ public class LogInForm {
             Scene WelcomeScene=new Scene(registerFormParent);
             Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
             window.centerOnScreen();
-            window.setHeight(600);
-            window.setWidth(800);
             window.setScene(WelcomeScene);
             window.show();
+        }  catch (PasswordIncorrect e) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Incorrect Password!");
+            alert.setHeaderText("Incorrect Password!");
+            alert.setContentText("Please rewrite the password!");
+
+            alert.showAndWait();
         } catch (UsernameDoesNotExist e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Username Does Not Exist!");
@@ -52,5 +58,14 @@ public class LogInForm {
             window.setScene(WelcomeScene);
             window.show();
         }
+    }
+    public void backButton( ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("WelcomePage.fxml"));
+        Parent registerFormParent = loader.load();
+        Scene WelcomeScene=new Scene(registerFormParent);
+        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(WelcomeScene);
+        window.show();
     }
 }

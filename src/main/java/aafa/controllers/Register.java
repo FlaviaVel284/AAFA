@@ -58,4 +58,13 @@ public class Register {
             alert.showAndWait();
         }
     }
+    public void backButton( ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("WelcomePage.fxml"));
+        Parent registerFormParent = loader.load();
+        Scene WelcomeScene=new Scene(registerFormParent);
+        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(WelcomeScene);
+        window.show();
+    }
 }

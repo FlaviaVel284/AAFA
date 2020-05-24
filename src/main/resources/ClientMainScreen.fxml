@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.SubScene?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aafa.Client.ClientMainScreen">
    <children>
@@ -13,9 +14,16 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="459.0" layoutY="34.0" mnemonicParsing="false" text="Add Announcement" />
+      <Button layoutX="419.0" layoutY="34.0" mnemonicParsing="false" onAction="#addAnnouncementButton" text="Add Announcement" />
       <Button layoutX="710.0" layoutY="34.0" mnemonicParsing="false" onAction="#logOutButton" text="Log Out" />
-      <AnchorPane layoutX="30.0" layoutY="100.0" prefHeight="482.0" prefWidth="740.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
-      <Button layoutX="596.0" layoutY="34.0" mnemonicParsing="false" text="Account Details" />
+      <AnchorPane layoutX="30.0" layoutY="74.0" prefHeight="500.0" prefWidth="750.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+         <children>
+            <SubScene height="500.0" width="740.0">
+              <root>
+                <Region />
+              </root>
+            </SubScene>
+         </children></AnchorPane>
+      <Button layoutX="580.0" layoutY="34.0" mnemonicParsing="false" text="Account Details" />
    </children>
 </AnchorPane>
