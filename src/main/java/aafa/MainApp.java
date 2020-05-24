@@ -6,9 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-
 
 public class MainApp extends Application {
     private Stage stage;
@@ -26,10 +24,6 @@ public class MainApp extends Application {
         primaryStage.centerOnScreen();
         primaryStage.show();
         UserService.loadUsersFromFile();
-    }
-
-    public Stage getPrimaryStage() {
-        return stage;
     }
 
 }
