@@ -24,6 +24,7 @@ public class MainApp extends Application {
         primaryStage.centerOnScreen();
         primaryStage.show();
         UserService.loadUsersFromFile();
+
     }
 
 }

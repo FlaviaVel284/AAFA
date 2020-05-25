@@ -22,7 +22,8 @@ public class UserService {
     private static final Path USERS_PATH = FileSystemService.getPathToFile("config","users.json");
 
     public static void loadUsersFromFile() throws IOException {
-
+        System.out.println(USERS_PATH);
+       // System.out.println(AnnouncementService.class.getClassLoader().getResource("users.json"));
         if (!Files.exists(USERS_PATH)) {
             System.out.println(USERS_PATH);
             FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("users.json"), USERS_PATH.toFile());
