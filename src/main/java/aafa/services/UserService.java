@@ -23,7 +23,7 @@ public class UserService {
 
     public static void loadUsersFromFile() throws IOException {
         System.out.println(USERS_PATH);
-       // System.out.println(AnnouncementService.class.getClassLoader().getResource("users.json"));
+        System.out.println(AnnouncementService.class.getClassLoader().getResource("users.json"));
         if (!Files.exists(USERS_PATH)) {
             System.out.println(USERS_PATH);
             FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("users.json"), USERS_PATH.toFile());

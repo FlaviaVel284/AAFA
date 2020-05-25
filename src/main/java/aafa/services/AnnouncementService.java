@@ -12,13 +12,13 @@ import java.util.List;
 
 public class AnnouncementService {
     private static List<Announcement> announcements;
-    private static Path ANN_PATH = FileSystemService.getPathToFile("config","announcement.json");
+    private static Path ANN_PATH = FileSystemService.getPathToFile("new","announcement.json");
 
     public static void loadAnnouncementsFromFile() throws IOException {
         System.out.println(AnnouncementService.class.getClassLoader().getResource("announcement.json"));
         if (!Files.exists(ANN_PATH)) {
             System.out.println(ANN_PATH);
-            FileUtils.copyURLToFile(AnnouncementService.class.getResource("announcement.json"), ANN_PATH.toFile());
+            FileUtils.copyURLToFile(AnnouncementService.class.getClassLoader().getResource("announcement.json"), ANN_PATH.toFile());
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
