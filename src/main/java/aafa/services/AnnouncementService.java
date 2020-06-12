@@ -4,6 +4,8 @@ import aafa.data.Announcement;
 import aafa.exceptions.CouldNotWriteAnnouncemetException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.apache.commons.io.FileUtils;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,12 +14,10 @@ import java.util.List;
 
 public class AnnouncementService {
     private static List<Announcement> announcements;
-    private static Path ANN_PATH = FileSystemService.getPathToFile("new","announcement.json");
+    private static final Path ANN_PATH = FileSystemService.getPathToFile("new","announcement.json");
 
     public static void loadAnnouncementsFromFile() throws IOException {
-        System.out.println(AnnouncementService.class.getClassLoader().getResource("announcement.json"));
         if (!Files.exists(ANN_PATH)) {
-            System.out.println(ANN_PATH);
             FileUtils.copyURLToFile(AnnouncementService.class.getClassLoader().getResource("announcement.json"), ANN_PATH.toFile());
         }
 
@@ -37,5 +37,19 @@ public class AnnouncementService {
         } catch (IOException e) {
             throw new CouldNotWriteAnnouncemetException();
         }
+    }
+
+    public static List<Announcement> getAnnouncements() {
+        try {
+            loadAnnouncementsFromFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return announcements;
+    }
+    public static ObservableList<Announcement> getObservableList(){
+        ObservableList<Announcement> announcementObservableList = FXCollections.observableArrayList();
+        announcementObservableList.addAll(announcements);
+        return announcementObservableList;
     }
 }

@@ -2,7 +2,6 @@ package aafa.controllers;
 
 import aafa.exceptions.PasswordIncorrect;
 import aafa.exceptions.UsernameDoesNotExist;
-import aafa.services.AnnouncementService;
 import aafa.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,7 +25,6 @@ public class LogInForm {
     public void logInButton( ActionEvent event) throws IOException {
 
         try {
-
             String encodedPassword=UserService.encodePassword(usernameField.getText(), passwordField.getText());
             UserService.verifyCredentials(usernameField.getText(),encodedPassword);
             FXMLLoader loader = new FXMLLoader();
@@ -36,14 +34,14 @@ public class LogInForm {
             Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
             window.centerOnScreen();
             window.setScene(WelcomeScene);
+            window.centerOnScreen();
             window.show();
-            AnnouncementService.loadAnnouncementsFromFile();
         }  catch (PasswordIncorrect e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Incorrect Password!");
             alert.setHeaderText("Incorrect Password!");
             alert.setContentText("Please rewrite the password!");
-
+            System.out.println();
             alert.showAndWait();
         } catch (UsernameDoesNotExist e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
