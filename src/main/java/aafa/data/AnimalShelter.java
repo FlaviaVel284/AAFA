@@ -5,7 +5,7 @@ public class AnimalShelter {
     private String age=" . ";
     private String medicalStatus=" . ";
 
-    public AnimalShelter(){}
+    public AnimalShelter(){ }
 
     public AnimalShelter(String species, String age, String medicalStatus) {
         this.species = species;

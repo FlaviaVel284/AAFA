@@ -24,5 +24,4 @@ public class ShelterMainScreen {
 
     //this method will switch to the postAnimal scene when is pushed
     //public void postButtonPushed(ActionEvent event)
-
 }
