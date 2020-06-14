@@ -4,3 +4,5 @@ out /
 *.iml
 workspace.xml
 AAFA.kotlin_module
+target
+build

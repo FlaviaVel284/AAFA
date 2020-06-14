@@ -24,7 +24,7 @@ public class UserService {
     public static void loadUsersFromFile() throws IOException {
 
         if (!Files.exists(USERS_PATH)) {
-            System.out.println(USERS_PATH);
+
             FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("users.json"), USERS_PATH.toFile());
         }
 
@@ -64,6 +64,19 @@ public class UserService {
             if (exists == false) {
                 throw new UsernameDoesNotExist(username);
             }
+    }
+
+    public static String verifyRole(String username, String password){
+        String role="";
+        for(User user : users){
+            if(username.equals(user.getUsername())){
+                if(password.equals(user.getPassword())){
+                    role += user.getRole();
+                }
+            }
+        }
+        return role;
+
     }
     private static void persistUsers() {
         try {

@@ -1,8 +1,10 @@
 package aafa.Client;
 
+import aafa.exceptions.CouldNotWriteAnnouncemetException;
+import aafa.services.AnnouncementService;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.event.ActionEvent;
 
 
 public class AnnouncementForm {
@@ -19,6 +21,8 @@ public class AnnouncementForm {
     @FXML
     private TextField picturePathField;
 
-    public void postButton(ActionEvent event) {
+    public void postButton(ActionEvent event) throws CouldNotWriteAnnouncemetException {
+        AnnouncementService.addAnnouncement(ownerField.getText(),speciesField.getText(),ageField.getText(),medicalStatusField.getText(),addressField.getText(),picturePathField.getText());
+       // ClientMainScreen.getLi
     }
 }
