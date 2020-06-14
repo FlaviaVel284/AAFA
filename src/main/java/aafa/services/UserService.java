@@ -65,6 +65,19 @@ public class UserService {
                 throw new UsernameDoesNotExist(username);
             }
     }
+
+    public static String verifyRole(String username, String password){
+        String role="";
+        for(User user : users){
+            if(username.equals(user.getUsername())){
+                if(password.equals(user.getPassword())){
+                    role += user.getRole();
+                }
+            }
+        }
+        return role;
+
+    }
     private static void persistUsers() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();

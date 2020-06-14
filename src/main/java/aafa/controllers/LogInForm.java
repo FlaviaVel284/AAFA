@@ -23,19 +23,32 @@ public class LogInForm {
     private PasswordField passwordField;
 
     public void logInButton( ActionEvent event) throws IOException {
-
         try {
+            String s="Client";
             String encodedPassword=UserService.encodePassword(usernameField.getText(), passwordField.getText());
             UserService.verifyCredentials(usernameField.getText(),encodedPassword);
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getClassLoader().getResource("ClientMainScreen.fxml"));
-            Parent registerFormParent = loader.load();
-            Scene WelcomeScene=new Scene(registerFormParent);
-            Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-            window.centerOnScreen();
-            window.setScene(WelcomeScene);
-            window.centerOnScreen();
-            window.show();
+            if(UserService.verifyRole(usernameField.getText(),encodedPassword).equals(s)) {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getClassLoader().getResource("ClientMainScreen.fxml"));
+                Parent registerFormParent = loader.load();
+                Scene WelcomeScene = new Scene(registerFormParent);
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.centerOnScreen();
+                window.setScene(WelcomeScene);
+                window.centerOnScreen();
+                window.show();
+            }else {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getClassLoader().getResource("ShelterMainScreen.fxml"));
+                    Parent registerFormParent = loader.load();
+                    Scene WelcomeScene = new Scene(registerFormParent);
+                    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    window.centerOnScreen();
+                    window.setScene(WelcomeScene);
+                    window.centerOnScreen();
+                    window.show();
+                }
+
         }  catch (PasswordIncorrect e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Incorrect Password!");
