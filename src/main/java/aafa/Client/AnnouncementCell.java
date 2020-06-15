@@ -3,15 +3,18 @@ package aafa.Client;
 import aafa.data.Announcement;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
+public class AnnouncementCell {
 
-public class AnnouncementCell extends ListCell<Announcement> {
+    private Announcement announcement;
+
     @FXML
     private Label ownerArea;
     @FXML
@@ -27,49 +30,28 @@ public class AnnouncementCell extends ListCell<Announcement> {
     @FXML
     private AnchorPane anchorPane;
 
-    private FXMLLoader mLLoader;
-
     public AnnouncementCell(){
-        ownerArea=new Label("gol");
-        speciesArea=new Label("");
-        ageArea=new Label("");
-        medicalStatusArea=new Label("");
-        addressArea=new Label("");
-        pictureView=new ImageView();
-    }
-    @Override
-    protected void updateItem(Announcement announcement, boolean empty) {
-        super.updateItem(announcement, empty);
-        if (empty || announcement == null) {
-            setText(null);
-            setGraphic(null);
-        } else {
-            if (mLLoader == null) {
-                mLLoader = new FXMLLoader();
-                mLLoader.setLocation(getClass().getClassLoader().getResource("AnnouncementCell.fxml"));
-                try {
-                    mLLoader.load();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource("AnnouncementCell.fxml"));
+            loader.setController(this);
+            try {
+                anchorPane=loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            ownerArea.setText(announcement.getOwner());
-            speciesArea.setText(announcement.getSpecies());
-            ageArea.setText(announcement.getAge());
-            medicalStatusArea.setText(announcement.getMedicalStatus());
-            addressArea.setText(announcement.getAddress());
+    }
 
-//            try (FileInputStream input = new FileInputStream(announcement.getPathPhoto())) {
-//                Image image = new Image(input);
-//                pictureView.setImage(image);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-
-            anchorPane= mLLoader.getRoot();
-
-            setText(null);
-            setGraphic(anchorPane);
-        }
+    public void setAnnouncement(Announcement announcement){
+        ownerArea.setText(announcement.getOwner());
+        speciesArea.setText(announcement.getSpecies());
+        ageArea.setText(announcement.getAge());
+        medicalStatusArea.setText(announcement.getMedicalStatus());
+        addressArea.setText(announcement.getAddress());
+        String picture=announcement.getPathPhoto();
+        Image image= new Image(picture);
+        pictureView.setImage(image);
+    }
+    public Node getView() {
+        return anchorPane ;
     }
 }

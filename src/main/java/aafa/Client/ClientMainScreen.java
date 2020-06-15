@@ -64,7 +64,7 @@ public class ClientMainScreen implements Initializable {
         }
         ObservableList<Announcement> announcementObservableList = AnnouncementService.getObservableList();
         listView.setItems(announcementObservableList);
-        listView.setCellFactory(announcementsListView -> new AnnouncementCell());
+        listView.setCellFactory(announcementsListView -> new AnnouncementListCell());
         listView.setOrientation(Orientation.VERTICAL);
         listView.setVisible(true);
     }

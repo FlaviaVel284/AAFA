@@ -35,8 +35,6 @@ public class Announcement {
     public String getAddress() {
         return address;
     }
-    public String getPathPhoto() {
-        return pathPhoto;
-    }
+    public String getPathPhoto() { return pathPhoto;   }
 
 }

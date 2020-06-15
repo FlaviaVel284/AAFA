@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="250.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aafa.Client.AnnouncementCell">
+<AnchorPane fx:id="anchorPane" prefHeight="250.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="pictureView" fitHeight="199.0" fitWidth="270.0" layoutX="31.0" layoutY="21.0" preserveRatio="true">
          <viewport>
