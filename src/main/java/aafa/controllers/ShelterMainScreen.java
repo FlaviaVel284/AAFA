@@ -40,7 +40,7 @@ public class ShelterMainScreen {
     }
 
 
-    //this method will switch to the postAnimal scene when is pushed
+    //this method will switch to the  postAnimal scene when is pushed
     public void AddButtonPushed(ActionEvent event) throws IOException {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getClassLoader().getResource("AnnouncementForm.fxml"));
