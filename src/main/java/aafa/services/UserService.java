@@ -106,4 +106,13 @@ public class UserService {
         return md;
     }
 
+    public static User getUserAs(String username) {
+        User found=null;
+        for (User user : users) {
+            if (username.equals(user.getUsername())) {
+               found=user;
+            }
+        }
+        return found;
+    }
 }

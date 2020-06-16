@@ -1,13 +1,21 @@
 package aafa.Client;
 
+import aafa.controllers.LogInForm;
 import aafa.data.Announcement;
+import aafa.data.User;
+import aafa.services.UserService;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -51,7 +59,37 @@ public class AnnouncementCell {
         Image image= new Image(picture);
         pictureView.setImage(image);
     }
+
     public Node getView() {
         return anchorPane ;
     }
+
+    public void editAnnouncement(ActionEvent event) throws IOException {
+        String username=LogInForm.getUsername();
+        User user = UserService.getUserAs(username);
+        String name=user.getName();
+        if(name.equals(this.ownerArea.getText())){
+           FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getClassLoader().getResource("EditAnnouncementForm.fxml"));
+           AnchorPane page = loader.load();
+
+           Stage dialogStage = new Stage();
+           dialogStage.setTitle("Edit Announcement");
+           dialogStage.initModality(Modality.WINDOW_MODAL);
+           dialogStage.initOwner(((Node) event.getSource()).getScene().getWindow());
+           Scene scene = new Scene(page);
+           dialogStage.setScene(scene);
+
+           dialogStage.showAndWait();
+       }else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Not your announcement!");
+                alert.setHeaderText("Not your announcement!");
+                alert.setContentText("You can only edit you own announcements");
+
+                alert.showAndWait();
+            }
+
+    }
 }
+

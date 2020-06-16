@@ -21,12 +21,13 @@ public class LogInForm {
     private TextField usernameField;
     @FXML
     private PasswordField passwordField;
-
+    private static String username;
     public void logInButton( ActionEvent event) throws IOException {
         try {
             String s="Client";
             String encodedPassword=UserService.encodePassword(usernameField.getText(), passwordField.getText());
             UserService.verifyCredentials(usernameField.getText(),encodedPassword);
+            username=usernameField.getText();
             if(UserService.verifyRole(usernameField.getText(),encodedPassword).equals(s)) {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getClassLoader().getResource("ClientMainScreen.fxml"));
@@ -82,4 +83,9 @@ public class LogInForm {
         window.setScene(WelcomeScene);
         window.show();
     }
+
+    public static String getUsername() {
+        return username;
+    }
+
 }
