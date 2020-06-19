@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.commons.io.FileUtils;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -30,7 +31,7 @@ public class AnnouncementService {
         announcements.add(new Announcement(owner,  species,  age, medicalStatus, address, pathPhoto));
         persistAnnouncement();
     }
-    private static void persistAnnouncement() throws  CouldNotWriteAnnouncemetException{
+    public static void persistAnnouncement() throws  CouldNotWriteAnnouncemetException{
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(ANN_PATH.toFile(),announcements);
@@ -51,5 +52,29 @@ public class AnnouncementService {
         ObservableList<Announcement> announcementObservableList = FXCollections.observableArrayList();
         announcementObservableList.addAll(announcements);
         return announcementObservableList;
+    }
+    public static Announcement getAnnouncement(String name){
+        Announcement ann=null;
+        for (Announcement announcement : announcements) {
+            if (name.equals(announcement.getOwner()))
+               ann= announcement;
+        }
+        return ann;
+    }
+    public static Announcement getAnnouncementAtIndex(int index){
+        return announcements.get(index);
+    }
+
+    public static void deleteAnnouncement(String name,String species, String age, String medical, String address) throws CouldNotWriteAnnouncemetException {
+        for (int i = 0; i < announcements.size(); i++) {
+            if (name.equals(announcements.get(i).getOwner()) &&
+                    species.equals(announcements.get(i).getSpecies()) &&
+                     age.equals(announcements.get(i).getAge()) &&
+                     medical.equals(announcements.get(i).getMedicalStatus()) &&
+                     address.equals(announcements.get(i).getAddress())) {
+                announcements.remove(i);
+            }
+        }
+        persistAnnouncement();
     }
 }

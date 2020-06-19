@@ -1,7 +1,5 @@
 package aafa.controllers;
 
-import aafa.MainApp;
-import aafa.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -21,6 +19,7 @@ public class WelcomePageController  {
         Scene registerFormScene=new Scene(registerFormParent);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(registerFormScene);
+        window.centerOnScreen();
         window.show();
     }
 
@@ -31,6 +30,7 @@ public class WelcomePageController  {
         Scene registerFormScene=new Scene(registerFormParent);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(registerFormScene);
+        window.centerOnScreen();
         window.show();
     }
 

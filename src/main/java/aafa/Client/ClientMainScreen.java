@@ -28,6 +28,7 @@ public class ClientMainScreen implements Initializable {
     public ClientMainScreen(){
         listView=new ListView<>();
     }
+
     public void logOutButton(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -36,6 +37,7 @@ public class ClientMainScreen implements Initializable {
         Scene registerFormScene = new Scene(registerFormParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(registerFormScene);
+        window.centerOnScreen();
         window.show();
     }
 
@@ -52,7 +54,7 @@ public class ClientMainScreen implements Initializable {
         dialogStage.setScene(scene);
 
         dialogStage.showAndWait();
-        listView.refresh();
+        refreshList(event);
     }
 
     @Override
@@ -64,12 +66,36 @@ public class ClientMainScreen implements Initializable {
         }
         ObservableList<Announcement> announcementObservableList = AnnouncementService.getObservableList();
         listView.setItems(announcementObservableList);
-        listView.setCellFactory(announcementsListView -> new AnnouncementCell());
+        listView.setCellFactory(announcementsListView -> new AnnouncementListCell());
         listView.setOrientation(Orientation.VERTICAL);
         listView.setVisible(true);
     }
 
-//    public ListView<Announcement> getListView() {
-//        return listView;
-//    }
+    public void refreshList(ActionEvent event) {
+        try {
+            AnnouncementService.loadAnnouncementsFromFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ObservableList<Announcement> announcementObservableList = AnnouncementService.getObservableList();
+        listView.setItems(announcementObservableList);
+        listView.setCellFactory(announcementsListView -> new AnnouncementListCell());
+        listView.setOrientation(Orientation.VERTICAL);
+        listView.setVisible(true);
+    }
+
+    public void showAccountDetails(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("AccountDetails.fxml"));
+        AnchorPane page = loader.load();
+
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Account Details");
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.initOwner(((Node) event.getSource()).getScene().getWindow());
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+        dialogStage.centerOnScreen();
+        dialogStage.showAndWait();
+    }
 }
