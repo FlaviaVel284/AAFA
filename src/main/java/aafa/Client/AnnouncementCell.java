@@ -3,6 +3,8 @@ package aafa.Client;
 import aafa.controllers.LogInForm;
 import aafa.data.Announcement;
 import aafa.data.User;
+import aafa.exceptions.CouldNotWriteAnnouncemetException;
+import aafa.services.AnnouncementService;
 import aafa.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -89,7 +91,9 @@ public class AnnouncementCell {
 
                 alert.showAndWait();
             }
-
+    }
+    public void deleteButton(ActionEvent event) throws CouldNotWriteAnnouncemetException {
+        AnnouncementService.deleteAnnouncement(ownerArea.getText(),speciesArea.getText(),ageArea.getText(),medicalStatusArea.getText(),addressArea.getText());
     }
 }
 

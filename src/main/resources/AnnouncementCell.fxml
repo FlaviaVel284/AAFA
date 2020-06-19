@@ -42,6 +42,6 @@
          </children>
       </GridPane>
       <Button layoutX="725.0" layoutY="203.0" mnemonicParsing="false" onAction="#editAnnouncement" text="Edit Announcement" />
-      <Button layoutX="473.0" layoutY="203.0" mnemonicParsing="false" text="Send Message to Owner" />
+      <Button layoutX="473.0" layoutY="203.0" mnemonicParsing="false" onAction="#deleteButton" text="Delete Announcement" />
    </children>
 </AnchorPane>

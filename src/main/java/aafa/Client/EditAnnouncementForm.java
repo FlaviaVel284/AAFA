@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class EditAnnouncementForm {
+    private AnnouncementCell cell;
     @FXML
     public TextField ownerField;
     @FXML
@@ -48,4 +49,5 @@ public class EditAnnouncementForm {
 
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
+
 }

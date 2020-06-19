@@ -37,6 +37,7 @@ public class ClientMainScreen implements Initializable {
         Scene registerFormScene = new Scene(registerFormParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(registerFormScene);
+        window.centerOnScreen();
         window.show();
     }
 
@@ -94,7 +95,7 @@ public class ClientMainScreen implements Initializable {
         dialogStage.initOwner(((Node) event.getSource()).getScene().getWindow());
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
-
+        dialogStage.centerOnScreen();
         dialogStage.showAndWait();
     }
 }

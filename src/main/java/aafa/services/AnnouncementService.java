@@ -64,4 +64,17 @@ public class AnnouncementService {
     public static Announcement getAnnouncementAtIndex(int index){
         return announcements.get(index);
     }
+
+    public static void deleteAnnouncement(String name,String species, String age, String medical, String address) throws CouldNotWriteAnnouncemetException {
+        for (int i = 0; i < announcements.size(); i++) {
+            if (name.equals(announcements.get(i).getOwner()) &&
+                    species.equals(announcements.get(i).getSpecies()) &&
+                     age.equals(announcements.get(i).getAge()) &&
+                     medical.equals(announcements.get(i).getMedicalStatus()) &&
+                     address.equals(announcements.get(i).getAddress())) {
+                announcements.remove(i);
+            }
+        }
+        persistAnnouncement();
+    }
 }

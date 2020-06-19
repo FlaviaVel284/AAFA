@@ -48,6 +48,7 @@ public class Register {
             Scene WelcomeScene=new Scene(registerFormParent);
             Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(WelcomeScene);
+            window.centerOnScreen();
             window.show();
         } catch (UsernameAlreadyExistsException e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
