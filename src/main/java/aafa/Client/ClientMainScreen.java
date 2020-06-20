@@ -84,18 +84,4 @@ public class ClientMainScreen implements Initializable {
         listView.setVisible(true);
     }
 
-    public void showAccountDetails(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("AccountDetails.fxml"));
-        AnchorPane page = loader.load();
-
-        Stage dialogStage = new Stage();
-        dialogStage.setTitle("Account Details");
-        dialogStage.initModality(Modality.WINDOW_MODAL);
-        dialogStage.initOwner(((Node) event.getSource()).getScene().getWindow());
-        Scene scene = new Scene(page);
-        dialogStage.setScene(scene);
-        dialogStage.centerOnScreen();
-        dialogStage.showAndWait();
-    }
 }
