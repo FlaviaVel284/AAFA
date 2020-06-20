@@ -13,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -41,20 +40,20 @@ public class ClientMainScreen implements Initializable {
         window.show();
     }
 
-    public void addAnnouncementButton(ActionEvent event) throws IOException {
+    public void addAnnouncementButton() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("AnnouncementForm.fxml"));
         AnchorPane page = loader.load();
 
-        Stage dialogStage = new Stage();
-        dialogStage.setTitle("Add Announcement");
-        dialogStage.initModality(Modality.WINDOW_MODAL);
-        dialogStage.initOwner(((Node) event.getSource()).getScene().getWindow());
-        Scene scene = new Scene(page);
-        dialogStage.setScene(scene);
-
-        dialogStage.showAndWait();
-        refreshList(event);
+//        Stage dialogStage = new Stage();
+//        dialogStage.setTitle("Add Announcement");
+//        dialogStage.initModality(Modality.WINDOW_MODAL);
+//        dialogStage.initOwner(((Node) event.getSource()).getScene().getWindow());
+//        Scene scene = new Scene(page);
+//        dialogStage.setScene(scene);
+//
+//        dialogStage.showAndWait();
+        //refreshList(event);
     }
 
     @Override

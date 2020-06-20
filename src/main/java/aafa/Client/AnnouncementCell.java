@@ -26,19 +26,19 @@ public class AnnouncementCell {
     private Announcement announcement;
 
     @FXML
-    private Label ownerArea;
+    Label ownerArea;
     @FXML
-    private Label speciesArea;
+     Label speciesArea;
     @FXML
-    private Label ageArea;
+     Label ageArea;
     @FXML
-    private Label medicalStatusArea;
+    Label medicalStatusArea;
     @FXML
-    private Label addressArea;
+     Label addressArea;
     @FXML
-    private ImageView pictureView;
+     ImageView pictureView;
     @FXML
-    private AnchorPane anchorPane;
+     AnchorPane anchorPane;
 
     public AnnouncementCell(){
             FXMLLoader loader = new FXMLLoader();
@@ -94,6 +94,9 @@ public class AnnouncementCell {
     }
     public void deleteButton(ActionEvent event) throws CouldNotWriteAnnouncemetException {
         AnnouncementService.deleteAnnouncement(ownerArea.getText(),speciesArea.getText(),ageArea.getText(),medicalStatusArea.getText(),addressArea.getText());
+    }
+    public void addAnnouncement() throws CouldNotWriteAnnouncemetException {
+        AnnouncementService.addAnnouncement(ownerArea.getText(),speciesArea.getText(),ageArea.getText(),medicalStatusArea.getText(),addressArea.getText(),pictureView.getImage().toString());
     }
 }
 

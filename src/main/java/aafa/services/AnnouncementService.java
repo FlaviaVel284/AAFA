@@ -78,4 +78,5 @@ public class AnnouncementService {
     public static Path getAnnPath() {
         return ANN_PATH;
     }
+
 }
