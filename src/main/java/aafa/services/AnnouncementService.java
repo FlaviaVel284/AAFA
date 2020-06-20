@@ -40,18 +40,15 @@ public class AnnouncementService {
         }
     }
 
-    public static List<Announcement> getAnnouncements() {
-        try {
-            loadAnnouncementsFromFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return announcements;
-    }
     public static ObservableList<Announcement> getObservableList(){
         ObservableList<Announcement> announcementObservableList = FXCollections.observableArrayList();
         announcementObservableList.addAll(announcements);
         return announcementObservableList;
+    }
+    public static Announcement getAnnouncement(int index){
+        Announcement ann=null;
+        ann=announcements.get(index);
+        return ann;
     }
     public static Announcement getAnnouncement(String name){
         Announcement ann=null;
@@ -61,10 +58,6 @@ public class AnnouncementService {
         }
         return ann;
     }
-    public static Announcement getAnnouncementAtIndex(int index){
-        return announcements.get(index);
-    }
-
     public static void deleteAnnouncement(String name,String species, String age, String medical, String address) throws CouldNotWriteAnnouncemetException {
         for (int i = 0; i < announcements.size(); i++) {
             if (name.equals(announcements.get(i).getOwner()) &&
@@ -76,5 +69,13 @@ public class AnnouncementService {
             }
         }
         persistAnnouncement();
+    }
+
+    public static List<Announcement> getAnnouncements() {
+        return announcements;
+    }
+
+    public static Path getAnnPath() {
+        return ANN_PATH;
     }
 }

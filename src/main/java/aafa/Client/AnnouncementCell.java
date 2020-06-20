@@ -87,7 +87,7 @@ public class AnnouncementCell {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Not your announcement!");
                 alert.setHeaderText("Not your announcement!");
-                alert.setContentText("You can only edit you own announcements");
+                alert.setContentText("You can only edit your own announcements");
 
                 alert.showAndWait();
             }
