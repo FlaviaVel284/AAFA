@@ -115,4 +115,8 @@ public class UserService {
         }
         return found;
     }
+
+    public static List<User> getUsers() {
+        return users;
+    }
 }

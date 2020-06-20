@@ -14,8 +14,8 @@ import java.nio.file.Path;
 import java.util.List;
 
 public class AnnouncementService {
-    private static List<Announcement> announcements;
-    private static final Path ANN_PATH = FileSystemService.getPathToFile("new","announcement.json");
+    static List<Announcement> announcements;
+    static Path ANN_PATH = FileSystemService.getPathToFile("new","announcement.json");
 
     public static void loadAnnouncementsFromFile() throws IOException {
         if (!Files.exists(ANN_PATH)) {
