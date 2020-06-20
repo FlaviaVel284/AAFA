@@ -18,8 +18,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class UserService {
-    private static List<User> users;
-    private static final Path USERS_PATH = FileSystemService.getPathToFile("config","users.json");
+    public static List<User> users;
+    public static final Path USERS_PATH = FileSystemService.getPathToFile("config","users.json");
 
     public static void loadUsersFromFile() throws IOException {
 
@@ -40,7 +40,7 @@ public class UserService {
         persistUsers();
     }
 
-    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
+    public static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
 
            for (User user : users) {
                if (username.equals(user.getUsername()))
@@ -114,5 +114,9 @@ public class UserService {
             }
         }
         return found;
+    }
+
+    public static List<User> getUsers() {
+        return users;
     }
 }
