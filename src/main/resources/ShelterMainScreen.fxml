@@ -18,7 +18,7 @@
         </columns>
       </TableView>
       <Button layoutX="529.0" layoutY="14.0" mnemonicParsing="false" onAction="#logOutButton" text="Log Out" />
-      <Button layoutX="427.0" layoutY="14.0" mnemonicParsing="false" text="List of Clients" />
+      <Button layoutX="427.0" layoutY="14.0" mnemonicParsing="false" onAction="#ListOfClientsButtonPushed" text="List of Clients" />
       <Label layoutX="47.0" layoutY="16.0" prefHeight="34.0" prefWidth="253.0" text="Shelter Manager">
          <font>
             <Font size="26.0" />
