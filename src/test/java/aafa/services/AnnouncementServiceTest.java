@@ -15,8 +15,6 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class AnnouncementServiceTest {
-//    List<Announcement> announcements;
-//    Path ann_path= FileSystemService.getPathToFile("new","announcement.json");
 
     @BeforeClass
     public static void setupClass(){
