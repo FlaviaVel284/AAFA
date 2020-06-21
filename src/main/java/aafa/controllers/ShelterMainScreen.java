@@ -74,6 +74,22 @@ public class ShelterMainScreen {
 
     }
 
+    public void AnimalsButtonPushed(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("TakeCareOfAnimals.fxml"));
+        AnchorPane page = loader.load();
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("List Of Clients");
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.initOwner(((Node) event.getSource()).getScene().getWindow());
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+
+        dialogStage.showAndWait();
+
+
+    }
+
 
 
 }
