@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="250.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="pictureView" fitHeight="199.0" fitWidth="270.0" layoutX="31.0" layoutY="21.0" preserveRatio="true">
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <GridPane layoutX="392.0" layoutY="21.0" prefHeight="170.0" prefWidth="453.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Age" GridPane.rowIndex="2" />
+            <Label text="Species" />
+            <Label text="Owner" GridPane.rowIndex="1" />
+            <Label text="Medical Status" GridPane.rowIndex="3" />
+            <Label text="Address" GridPane.rowIndex="4" />
+            <Label fx:id="speciesArea" prefHeight="18.0" prefWidth="219.0" text="gol" GridPane.columnIndex="1" />
+            <Label fx:id="ownerArea" prefHeight="18.0" prefWidth="162.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="ageArea" prefHeight="18.0" prefWidth="163.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="medicalStatusArea" prefHeight="18.0" prefWidth="178.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="addressArea" prefHeight="18.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+      <Button layoutX="725.0" layoutY="203.0" mnemonicParsing="false" onAction="#editAnnouncement" text="Edit Announcement" />
+      <Button layoutX="473.0" layoutY="203.0" mnemonicParsing="false" onAction="#deleteButton" text="Delete Announcement" />
+   </children>
+</AnchorPane>
